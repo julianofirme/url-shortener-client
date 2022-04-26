@@ -1,6 +1,7 @@
 import { Box, Container } from '@mui/material';
 import React, { useContext } from 'react';
 import Input from '../components/Input';
+import SearchButton from '../components/SearchButton';
 import { UrlContext } from '../providers/urlProvider';
 
 function Home() {
@@ -25,6 +26,7 @@ function Home() {
 
       <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <Input placeholder={'Paste your link'} onChange={handleChange} />
+        <SearchButton value="Shortener" onClick={() => {}} />
       </Box>
     </Container>
   );
