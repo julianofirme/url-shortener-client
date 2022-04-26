@@ -20,9 +20,8 @@ const UrlProvider = (props: any) => {
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await postData({ originalUrl: originalUrl });
-        setUrl(data);
-        console.log("🚀 ~ response.data.url", data)
+        const response = await postData({ originalUrl: originalUrl });
+        setUrl(response.url);
       } catch (error) {
         console.log(error);
       }
