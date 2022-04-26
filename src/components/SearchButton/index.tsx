@@ -10,7 +10,9 @@ function SearchButton({ value, onClick }: SearchButtonProps) {
   return (
     <>
       <Stack spacing={2} direction="row">
-        <Button sx={{
+        <Button
+        onClick={onClick} 
+        sx={{
           height: '56px',
           background: '#F37D63',
           borderRadius: '20px',
