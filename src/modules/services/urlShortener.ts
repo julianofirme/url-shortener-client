@@ -1,5 +1,4 @@
 import axios from "axios";
-import { Url } from "../model";
 
 interface IParams {
   originalUrl: string;
