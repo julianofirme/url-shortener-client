@@ -16,7 +16,10 @@ function SearchButton({ value, onClick }: SearchButtonProps) {
           borderRadius: '20px',
           margin: '12px',
           color: '#000',
-          fontWeight: 'bold'
+          fontWeight: 'bold',
+          '&:hover': {
+            background: '#F37D63',
+          }
         }} variant="contained">{value}</Button>
       </Stack>
     </>
