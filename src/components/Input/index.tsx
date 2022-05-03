@@ -10,8 +10,13 @@ interface InputProps {
 
 function Input({ placeholder, onChange }: InputProps) {
   return (
-    <Box component="form" noValidate autoComplete="off">
-      <FormControl sx={{ width: '60ch' }}>
+    <Box sx={{
+      width: '80%',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+    }} component="form" noValidate autoComplete="off">
+      <FormControl sx={{ maxWidth: '700px', width: '100%' }}>
         <OutlinedInput sx={{
           backgroundColor: 'white',
           borderRadius: '20px'

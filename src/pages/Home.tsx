@@ -34,8 +34,14 @@ function Home() {
         with one click!
       </h1>
 
-      <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-        <Input placeholder={'Paste your link'} onChange={handleChange} />
+      <Box sx={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'column',
+      }}
+      >
+        <Input placeholder={"Paste your link with 'https://' prefix."} onChange={handleChange} />
         <SearchButton value="Shortener" onClick={handleShorten} />
       </Box>
 
