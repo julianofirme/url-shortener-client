@@ -6,7 +6,7 @@ interface IParams {
 
 const postData = async ({ originalUrl }: IParams) => {
   const response = await axios.post(
-    "https://cx6.herokuapp.com/urls",
+    "https://df.up.railway.app",
     {
       original_url: originalUrl
     }
