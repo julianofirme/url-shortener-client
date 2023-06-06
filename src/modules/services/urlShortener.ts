@@ -4,9 +4,11 @@ interface IParams {
   originalUrl: string;
 }
 
+const API_URL = process.env.NODE_ENV === "production" ? 'https://url-7uj6.onrender.com/url' : 'http://localhost:3030/url';
+
 const postData = async ({ originalUrl }: IParams) => {
   const response = await axios.post(
-    "https://url-7uj6.onrender.com/url",
+    API_URL,
     {
       original_url: originalUrl
     }
