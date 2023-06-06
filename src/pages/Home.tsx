@@ -1,63 +1,65 @@
-import { Box, Container } from '@mui/material';
-import React, { useContext, useState } from 'react';
-import CopyButton from '../components/CopyButton';
-import Input from '../components/Input';
-import SearchButton from '../components/SearchButton';
-import { UrlContext } from '../providers/urlProvider';
+import { Box, Container } from "@mui/material";
+import React, { useContext, useState } from "react";
+import CopyButton from "../components/CopyButton";
+import Input from "../components/Input";
+import SearchButton from "../components/SearchButton";
+import { UrlContext } from "../providers/urlProvider";
 
 function Home() {
-  const { setOriginalUrl, url } = useContext(UrlContext)
-  const [urlToShorten, setUrlToShorten] = useState<string>('')
-
+  const { handleShortenUrl, url } = useContext(UrlContext);
+  const [urlToShorten, setUrlToShorten] = useState<string>("");
 
   const handleChange = (event: any) => {
     const {
-      target: { value }
-    } = event
+      target: { value },
+    } = event;
 
-    setUrlToShorten(value)
-  }
-
-  const handleShorten = () => {
-    setOriginalUrl(urlToShorten)
-  }
+    setUrlToShorten(value);
+  };
 
   const handleCopyUrl = () => {
-    navigator.clipboard.writeText(url)
-  }
+    navigator.clipboard.writeText(url);
+  };
 
   return (
     <Container>
-      <h1 style={{ textAlign: 'center', fontSize: '56px' }}>
-        Shortener your <span style={{ color: '#F37D63' }}>links</span>
+      <h1 style={{ textAlign: "center", fontSize: "56px" }}>
+        Shortener your <span style={{ color: "#F37D63" }}>links</span>
         <br />
         with one click!
       </h1>
 
-      <Box sx={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        flexDirection: 'column',
-      }}
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          flexDirection: "column",
+        }}
       >
-        <Input placeholder={"Paste your link with 'https://' prefix."} onChange={handleChange} />
-        <SearchButton value="Shortener" onClick={handleShorten} />
+        <Input
+          placeholder={"Paste your link with 'https://' prefix."}
+          onChange={handleChange}
+        />
+        <SearchButton value="Shortener" onClick={() => handleShortenUrl(urlToShorten)} />
       </Box>
 
-      {
-        url && (
-          <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <h3
-              style={{ textAlign: 'center', color: '#F37D63' }}
-            >
-              <a style={{ color: 'white' }} href={url}>{url}</a>
-            </h3>
-            <CopyButton value='Copy url' onClick={handleCopyUrl} />
-          </Box>
-        )
-      }
-
+      {url && (
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <h3 style={{ textAlign: "center", color: "#F37D63" }}>
+            <a style={{ color: "white" }} href={url}>
+              {url}
+            </a>
+          </h3>
+          <CopyButton value="Copy url" onClick={handleCopyUrl} />
+        </Box>
+      )}
     </Container>
   );
 }

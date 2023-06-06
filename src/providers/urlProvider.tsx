@@ -1,13 +1,13 @@
-import { useState, createContext, useEffect, SetStateAction } from "react";
+import { useState, createContext } from "react";
 import { postData } from "../modules/services/urlShortener";
 
 interface dataContext {
-  setOriginalUrl: (_: SetStateAction<string>) => void;
+  handleShortenUrl: (originalUrl: string) => void;
   url: string;
 }
 
 const defaultValues: dataContext = {
-  setOriginalUrl: function (_: SetStateAction<string>): void {},
+  handleShortenUrl: function (originalUrl: string): void {},
   url: "",
 };
 
@@ -15,23 +15,20 @@ export const UrlContext = createContext(defaultValues);
 
 const UrlProvider = (props: any) => {
   const [url, setUrl] = useState<string>("");
-  const [originalUrl, setOriginalUrl] = useState<string>('');
 
-  useEffect(() => {
-    (async () => {
-      try {
-        const response = await postData({ originalUrl: originalUrl });
-        setUrl(response.url);
-      } catch (error) {
-        console.log(error);
-      }
-    })();
-  }, [originalUrl]);
+  const handleShortenUrl = async (originalUrl: string) => {
+    try {
+      const response = await postData({ originalUrl: originalUrl });
+      setUrl(response.url);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <UrlContext.Provider
       value={{
-        setOriginalUrl,
+        handleShortenUrl,
         url,
       }}
     >
