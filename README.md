@@ -1,6 +1,6 @@
 # Url Shortener Client
 ### Project API: https://github.com/jfirme-sys/url-shortener
-### Prod: http://url-shortener-mu-topaz.vercel.app/
+### Prod: https://url-fawn.vercel.app/
 
 This is a simple solution to you shorten any url for free. 
 <p align="left">
