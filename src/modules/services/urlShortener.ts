@@ -6,7 +6,7 @@ interface IParams {
 
 const postData = async ({ originalUrl }: IParams) => {
   const response = await axios.post(
-    "https://df.up.railway.app",
+    "https://url-7uj6.onrender.com/url",
     {
       original_url: originalUrl
     }
